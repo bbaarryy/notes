@@ -3,6 +3,7 @@
 
 # but,
 !examples/**/*.cpp
+!C++ algos/*.cpp
 !*/
 !.vscode/*.json
 !examples/**/*.sh
