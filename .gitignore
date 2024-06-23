@@ -1,32 +1,25 @@
-# Prerequisites
-*.d
+# Ignore Everything
+*
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# but,
+!examples/**/*.cpp
+!*/
+!.vscode/*.json
+!examples/**/*.sh
+!*.md
+!examples/**/*.txt
+!examples/**/*.supp
+!artefacts/**/*.txt
+!npv/**/*
+!**/*.drawio
+!**/*.excalidraw
+!**/*.code-workspace
+!**/make/Makefile
+!**/**/*.pdf
 
-# Precompiled Headers
-*.gch
-*.pch
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+#
+examples/**/build/*
+examples/**/CMakeCache.txt
+examples/**/CMakeFiles/*
 
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
