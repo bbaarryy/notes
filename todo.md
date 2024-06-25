@@ -6,5 +6,7 @@ https://tproger.ru/translations/git-quick-start
 ## c++
 описание c++ [here](c++.md) 
 
-nice theme for VSCode , father! =)
+## cmake
+https://ru.stackoverflow.com/questions/1051669/Для-чего-нужен-cmake
+
 
