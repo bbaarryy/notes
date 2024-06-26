@@ -9,3 +9,9 @@
 
 Слить : git merge [название ветки]
 
+## сабмодули 
+git submodules init   
+git submodule update  
+
+
+

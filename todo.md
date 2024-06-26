@@ -9,4 +9,8 @@ https://tproger.ru/translations/git-quick-start
 ## cmake
 https://ru.stackoverflow.com/questions/1051669/Для-чего-нужен-cmake
 
+## unit-тестирование
+https://tproger.ru/translations/unit-tests-purposes
+
+
 
