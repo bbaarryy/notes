@@ -15,17 +15,17 @@
 
 using namespace std;
 
-struct Node
+struct Node//создаем свою структурку для вершин бора
 {
-	vector<int> go;
-	bool terminal{0};
+	vector<int> go;//массив ссылок на следующие элементы
+	bool terminal{0};//терминаотная ли веришна , или нет
 	Node()
 	{
 		go.resize(26, -1);
 	}
 };
 
-vector<Node> trie(1, Node());
+vector<Node> trie(1, Node());//сам бор
 
 void add_str(const string &str)
 {

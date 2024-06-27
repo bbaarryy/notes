@@ -33,29 +33,32 @@ void print_array_ll(vector<ll>& a) {
 int main() {
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 	
-	ll n, k;
-	cin >> n >> k;
+	ll n;
+	cin >> n;
 	string s;
 	cin >> s;
 	//z-функция
+	//z[i] - это наибольший общий префикс строки s и её i-го суффикса
 	vector<ll> z(n,0);
-	ll l=0, r=0;//-границы текущего суффикса 
+	ll l=0, r=0;//-границы уже обработанного отрезка
 	for (int i = 1; i < n; i++) {
-		int curr_len_of_suff;
-		if (i > r) {
-			curr_len_of_suff = 0;
+		int curr_len_of_pref;//длина текущего префикса для индекса i
+		if (i > r) {//если индекс не в обработанном поле , то воспользуемся наивным алгоритмом
+			curr_len_of_pref = 0;
 		}
-		else {
-			curr_len_of_suff = min(z[i - l], r - i + 1);//у I-го символа будет точно хотя бы тот же суффикс , что 
-			//и у относительно такого же элемента в суффиксе с начала , но не больше границы суффикса
+		else {//если индекс в обработанном поле , то можно воспользоваться уже посчитанными значениями
+			curr_len_of_pref = min(z[i - l], r - i + 1);//у i-го символа будет точно хотя бы тот же префикс , что 
+			//и у относительно такого же элемента с начала массива , но не больше границы префикса
 		}
-		while ((i + curr_len_of_suff < n) && s[curr_len_of_suff] == s[i + curr_len_of_suff]) { //далее проверяем , можно ли добавить еще элементов
-			curr_len_of_suff++;
+		while ((i + curr_len_of_pref < n) && s[curr_len_of_pref] == s[i + curr_len_of_pref]) { //далее проверяем , можно ли добавить еще элементов
+			//это наивный алгоритм
+			curr_len_of_pref++;
 		}
-		if (i + curr_len_of_suff - 1 > r) {
-			r = i + curr_len_of_suff - 1; l = i;
+		if (i + curr_len_of_pref - 1 > r) {
+			r = i + curr_len_of_pref - 1; l = i;
 		}
-		z[i] = curr_len_of_suff;
+		z[i] = curr_len_of_pref;
 	}
+	z[0]=n;
 	print_array_ll(z);
 }

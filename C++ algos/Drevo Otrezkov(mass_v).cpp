@@ -23,11 +23,10 @@ vector<ll> tree;
 vector<ll> pus;
 
 //это - для массовых операций----------------
-void push(ll l, ll r, ll i) {
+void push(ll i) {
 	if (pus[i] != 0) {
 		pus[i * 2 + 1] += pus[i];
 		pus[i * 2 + 2] += pus[i];
-		ll m = (l + r) / 2;
 		tree[i * 2 + 1] += pus[i];
 		tree[i * 2 + 2] += pus[i];
 		pus[i] = 0;
@@ -53,7 +52,7 @@ void update(ll rt, ll l, ll r, ll ql, ll qr, ll x) {//аналогично build
 		return;
 	}
 	ll m = (l + r) / 2;
-	push(l, r, rt);
+	push(rt);
 	update(rt * 2 + 1, l, m, ql, qr, x);
 	update(rt * 2 + 2, m + 1, r, ql, qr, x);
 	tree[rt] = max(tree[rt * 2 + 1], tree[rt * 2 + 2]);
@@ -68,7 +67,7 @@ ll get(ll rt, ll l, ll r, ll l1, ll r1) {
 	}
 	//и так делаем для детей
 	ll t = (l + r) / 2;
-	push(l, r, rt);
+	push(rt);
 	ll L = get(rt * 2 + 1, l, t, l1, r1);
 	ll R = get(rt * 2 + 2, t + 1, r, l1, r1);
 	//потом просто возвращаем сумму от детей

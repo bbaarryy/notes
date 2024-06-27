@@ -44,8 +44,8 @@ int main() {
 	//FLOID
 	ll n, m,a,b,d;
 	cin >> n >> m;
-	vector<vector<ll>> matrix(n);
-	vector<vector<ll>> distance(n, vector<ll>(n,1e9));
+	vector<vector<ll>> matrix(n);//граф 
+	vector<vector<ll>> distance(n, vector<ll>(n,1e9));//расстояние между веришнами
 	REP(m) {
 		cin >> a >> b >> d;
 		matrix[a - 1].push_back(b-1);
@@ -55,7 +55,7 @@ int main() {
 		distance[a-1][b-1] = d;
 		distance[b-1][a-1] = d;
 	}
-	
+	//Сложность - O(n^3)!
 	for (int k = 0; k < n; k++) {
 		for (int u = 0; u < n; u++) {
 			for (int v = 0; v < n; v++) {
