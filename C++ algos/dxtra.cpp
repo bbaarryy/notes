@@ -57,20 +57,21 @@ struct doub
 
 ll dxtra(vector<vector<pair<ll, ll>>> &matrix, ll start, ll finish, ll n)
 {
-    set<doub> setic;
-    vector<ll> dist;
+    set<doub> setic;//set, где хранятся пары вершина-расстояние до неё
+    vector<ll> dist;//массив расстояний до вершин
     dist.resize(n, 1e9);
     dist[start] = 0;
     setic.insert({0, 0});
     ll min_vertex, min_dist;
     while (!setic.empty())
     {
-        min_vertex = setic.begin()->vertex;
+        min_vertex = setic.begin()->vertex;//релаксация, выбираем вершину с минимальным расстоянием
         setic.erase(setic.begin());
         for (auto vrt : matrix[min_vertex])
         {
             if (dist[min_vertex] + vrt.second < dist[vrt.first])
             {
+                //обновляем расстояние для вершины - соседа с вершиной с минимальным расстоянием
                 setic.erase({vrt.first , dist[vrt.first]});
                 dist[vrt.first] = dist[min_vertex] + vrt.second;
                 setic.insert({vrt.first , dist[vrt.first]});

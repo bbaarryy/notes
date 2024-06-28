@@ -17,7 +17,7 @@
 #include <stdio.h>
 #include <unordered_map>
 
-#define ll int
+#define ll long long
 
 using namespace std;
 
