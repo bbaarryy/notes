@@ -8,6 +8,7 @@
         "johnpapa.vscode-peacock",
         "ms-vscode.cmake-tools",
         "vscode-icons-team.vscode-icons",
-        "ms-vscode.cpptools-extension-pack"
+        "ms-vscode.cpptools-extension-pack",
+        "hediet.vscode-drawio"
     ]
 }
