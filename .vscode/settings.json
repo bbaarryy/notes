@@ -18,5 +18,8 @@
         "titleBar.inactiveBackground": "#6caec099",
         "titleBar.inactiveForeground": "#15202b99"
     },
-    "peacock.remoteColor": "#6caec0"
+    "peacock.remoteColor": "#6caec0",
+    "files.associations": {
+        "iostream": "cpp"
+    }
 }
