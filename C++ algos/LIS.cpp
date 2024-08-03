@@ -24,6 +24,7 @@ ostream &operator<<(ostream &out, const vector<T> &a)
 }
 
 int main(){
+    //НВП
     ll n;
     cin >> n;
     vector<ll> arr(n);
@@ -52,6 +53,4 @@ int main(){
     }
     reverse(all(ans_v));
     cout << ans_v;
-
-
 }

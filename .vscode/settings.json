@@ -20,6 +20,7 @@
     },
     "peacock.remoteColor": "#6caec0",
     "files.associations": {
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "cmath": "cpp"
     }
 }
