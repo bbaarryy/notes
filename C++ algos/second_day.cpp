@@ -99,6 +99,34 @@ ld solve(vector<v> dots,vector<bool> holes,ll n,ld wire) {
 	return minimum;
 }
 
+vector<vector<ll>> arr;
+vector<vector<bool>> used;
+ll summ = 0;
+
+void dfs(ll x,ll y,ll f,ll s,ll n,ll m) {
+	summ++;
+	used[x][y] = 1;
+	if (x + 1 < n && ((arr[x+1][y]==f|| arr[x + 1][y] == s) && used[x+1][y]==0)) {
+		dfs(x+1,y,f,s,n,m);
+	}
+	if (x - 1 >= 0 && ((arr[x - 1][y] == f || arr[x - 1][y] == s) && used[x - 1][y] == 0)) {
+		dfs(x - 1, y, f, s, n, m);
+	}
+	if (y + 1 < m && ((arr[x][y+1] == f || arr[x][y+1] == s) && used[x][y+1] == 0)) {
+		dfs(x, y+1, f, s, n, m);
+	}
+	if (y - 1 >= 0 &&( (arr[x][y-1] == f || arr[x][y-1] == s) && used[x][y-1] == 0)) {
+		dfs(x, y-1, f, s, n, m);
+	}
+}
+
+void fun(pair<ll,ll> a,pair<ll,ll> b) {
+	if (max(a.first, b.first) >= min(a.second, b.second)) {
+		return 0;
+	}
+	return 1;
+}
+
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
@@ -133,39 +161,96 @@ int main() {
 	//}
 	//cout << tot_ans << '\n';
 
-	ll n, h,l,r;
-	ld wire;
-	
-	cin >> n >> wire >> h;
-	//if (wire == 0) { cout << "bebe"; return 0; }
-	//if (h == 0) { cout << "bebe"; return 0; }
-	vector<bool> holes(n,0);
-	vector<bool> reverse_holes(n, 0);
+	//ll n, h,l,r;
+	//ld wire;
+	//
+	//cin >> n >> wire >> h;
+	////if (wire == 0) { cout << "bebe"; return 0; }
+	////if (h == 0) { cout << "bebe"; return 0; }
+	//vector<bool> holes(n,0);
+	//vector<bool> reverse_holes(n, 0);
 
-	REP(h) {
-		cin >> l;
-		holes[l-1]=1;
-		reverse_holes[n - (l - 1) - 1] = 1;
-	}
+	//REP(h) {
+	//	cin >> l;
+	//	holes[l-1]=1;
+	//	reverse_holes[n - (l - 1) - 1] = 1;
+	//}
 
-	vector<v> dots;
-	REP(n) {
-		cin >> l >> r;
-		dots.push_back({l,r});
-	}
-	for (int i = 0; i < n; i++) {
-		if (holes[i] == 1) {
-			all_hp += dist(dots[i],dots[(i+1)%n]);
+	//vector<v> dots;
+	//REP(n) {
+	//	cin >> l >> r;
+	//	dots.push_back({l,r});
+	//}
+	//for (int i = 0; i < n; i++) {
+	//	if (holes[i] == 1) {
+	//		all_hp += dist(dots[i],dots[(i+1)%n]);
+	//	}
+	//}
+
+	//if (wire == 0) { cout <<fixed << all_hp; return 0; }
+	//ld first_ans = solve(dots, holes, n, wire);
+	//dots.push_back(dots[0]);
+	//reverse(all(dots));
+	//dots.pop_back();
+	//ld second_ans = solve(dots,reverse_holes,n,wire);
+	////cout << solve(dots,holes,n,wire,h);
+
+	//cout << fixed << min(first_ans,second_ans);
+
+	/*ll n, m;
+	cin >> n >> m;
+	arr.resize(n, vector<ll>(m));
+	set<ll> setic;
+	for (int x = 0; x < n; x++) {
+		for (int y = 0; y < m; y++) {
+			cin >> arr[x][y];
+			setic.insert(arr[x][y]);
 		}
 	}
+	ll ans = -1;
+	ll fa, sa;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			ll first_lord = arr[i][j];
+			for (ll second_lord : setic) {
+				used.assign(n, vector<bool>(m, 0));
+				dfs(i,j,first_lord,second_lord,n,m);
+				if (summ > ans) { ans = summ; fa = first_lord; sa = second_lord; }
+				summ = 0;
 
-	if (wire == 0) { cout <<fixed << all_hp; return 0; }
-	ld first_ans = solve(dots, holes, n, wire);
-	dots.push_back(dots[0]);
-	reverse(all(dots));
-	dots.pop_back();
-	ld second_ans = solve(dots,reverse_holes,n,wire);
-	//cout << solve(dots,holes,n,wire,h);
+			}
+		}
+	}
+	cout << ans << '\n' << fa << ' ' << sa << '\n';*/
 
-	cout << fixed << min(first_ans,second_ans);
+	/*ll n,l,r;
+	cin >> n;
+	vector<pair<ll, ll>> arr;
+
+	REP(n) {
+		cin >> l >> r;
+		arr.push_back({l,r});
+	}
+	ll q;
+	cin >> q;
+	while (q--) {
+		ll k;
+		cin >> k;
+		k--;
+		for (r = arr[k].first; r<arr[k].second; r++) {
+			for (l = arr[k].first; l < r; l++) {
+				for (int i = 0; i < n; i++) {
+					if (i != k) {
+						
+					}
+				}
+			}
+		}
+	}*/
+
+	while (true) {
+		ll a, b, c, d;
+		cin >> a >> b >> c >> d;
+		cout << fun({ a,b }, {c,d});
+	}
 }
