@@ -4,6 +4,8 @@
 # but,
 !examples/**/*.cpp
 !C++ algos/*.cpp
+!day_3/*.cpp
+!day_4/*.cpp
 !*/
 !.vscode/*.json
 !examples/**/*.sh
