@@ -6,6 +6,7 @@
 !C++ algos/*.cpp
 !day_3/*.cpp
 !day_4/*.cpp
+!day_5/*.cpp
 !*/
 !.vscode/*.json
 !examples/**/*.sh
