@@ -21,6 +21,10 @@
     "peacock.remoteColor": "#6caec0",
     "files.associations": {
         "iostream": "cpp",
-        "cmath": "cpp"
-    }
+        "cmath": "cpp",
+        "iosfwd": "cpp",
+        "*.tcc": "cpp"
+    },
+    "vscode-pets.petColor": "green",
+    "vscode-pets.petType": "snake"
 }
