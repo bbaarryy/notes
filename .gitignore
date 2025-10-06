@@ -4,6 +4,7 @@
 # but,
 !examples/**/*.cpp
 !C++ algos/*.cpp
+!C++_algos/*.cpp
 !day_3/*.cpp
 !day_4/*.cpp
 !day_5/*.cpp
